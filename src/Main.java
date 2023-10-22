@@ -9,10 +9,12 @@ public class Main {
         int minVal = findMin(vals);
         int hvilkeIndex1= usortetSok(a, 7);
         int hvilkeIndex2= sortedSok(b, 9);
+        int siraliListe = sortedSok2(b, 4);
         System.out.println("Maksimum deger :" + maxVal);
         System.out.println("Minumum deger:" + minVal);
         System.out.println("Aranan degerin indeksi: " + hvilkeIndex1);
         System.out.println("Aranan degerin indeksi: " +hvilkeIndex2);
+        System.out.println("aranan deger :" +siraliListe);
 
     }
 
@@ -66,9 +68,30 @@ public class Main {
             }
 
         }
-        return -1;
+        return -1;  // aranan degerin dizide olmadiginda geriye dondurecek degeri belirtir
     }
 
+
+    public static int sortedSok2 (int [] b, int value){
+        int stepLenght=2;
+
+        for (int i = 0; i <b.length ; i=i+stepLenght) {
+            if (b[i]>=value){
+                int begin= i-stepLenght;
+                int end = i+1;
+                for (int j =begin; j <end ; j++) {
+                    if (b[j]==value){
+                        return j;
+                    }
+
+                }
+                return -1;
+            }
+
+        }
+        return -1;
+
+    }
 
 }
 
